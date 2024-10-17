@@ -1,0 +1,67 @@
+<p-card class="w-12 h-full">
+    <ng-template pTemplate="header">
+        <div class="flex justify-content-between flex-wrap">
+            <h3 class="ml-4">
+                Registro de Usuarios
+            </h3>
+            <div class="mt-2 mr-2">
+                <a 
+  pButton 
+  pRipple
+  label="Crear Usuario" 
+  icon="pi pi-user-plus"
+  class="bg-cyan-600"
+  [routerLink]="['/Usuario/nuevo']">
+</a>
+
+            </div>
+        </div>
+    </ng-template>
+    <p>
+        <p-table [value]="Usuarios">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Tipo de Usuario</th>
+                    <th class="flex justify-content-center flex-wrap">Acciones</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-usuario>
+                <tr>
+                    <td>{{ usuario.nombre }}</td>
+                    <td>{{ usuario.apellido }}</td>
+                    <td>{{ usuario.email }}</td>
+                    <td>{{ usuario.tipo_usuario }}</td>
+                    <td>
+                        <button 
+                            pButton 
+                            pRipple
+                            icon="pi pi-print"
+                            class="bg-cyan-600  mr-1">
+                        </button>
+                        
+                        <a 
+                            pButton 
+                            pRipple
+                            icon="pi pi-sync"
+                            severity="warning"
+                            class="mr-1"
+                            [routerLink]="['/usuarios/edit', usuario.id]">
+                        </a>
+
+                        <button 
+                            pButton 
+                            pRipple
+                            severity="danger"
+                            icon="pi pi-eraser"
+                            class="mr-1"
+                            (click)="eliminar(usuario.id)">
+                        </button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </p>
+</p-card>
