@@ -9,6 +9,7 @@ providedIn: 'root'
 export class UsuarioService {
 api_uri_django = 'http://localhost:8000';
   base_path = `${this.api_uri_django}/usuarios/`; // Cambié 'clientes' a 'usuarios'
+  
 
 constructor(
     private http: HttpClient
@@ -27,8 +28,8 @@ getOneUsuario(id: number): Observable<UsuarioI> {
 }
 
   // Crear un nuevo usuario
-createUsuario(data: any): Observable<UsuarioI> {
-    return this.http.post<UsuarioI>(this.base_path, data);
+  createUsuario(usuario: UsuarioI): Observable<UsuarioI> {
+    return this.http.post<UsuarioI>(this.base_path, usuario);
 }
 
 // Actualizar un usuario existente

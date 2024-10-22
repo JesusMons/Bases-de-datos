@@ -1,0 +1,74 @@
+<p-card header="Crear Usuario" [style]="{ width: '100%' }">
+    <ng-template pTemplate="header">
+        <!-- Aquí puedes añadir un encabezado o mensaje personalizado si es necesario -->
+    </ng-template>
+
+    <div>
+        <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()" class="p-3 bg-faded">
+            <div class="grid">
+                <!-- Campo nombre -->
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
+                        <input class="w-12" type="text" pInputText formControlName="nombre" placeholder="Nombre"
+                            title="Nombre" />
+                    </div>
+                </div>
+
+                <!-- Campo apellido -->
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-id-card"></i></span>
+                        <input class="w-12" type="text" pInputText formControlName="apellido" placeholder="Apellido"
+                            title="Apellido" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid">
+                <!-- Campo email -->
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
+                        <input class="w-12" type="email" pInputText formControlName="email" placeholder="Email"
+                            title="Email" />
+                    </div>
+                </div>
+
+                <!-- Campo tipo de usuario -->
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-users"></i></span>
+                        <input class="w-12" type="text" pInputText formControlName="tipo_usuario"
+                            placeholder="Tipo de Usuario" title="Tipo de Usuario" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid">
+                <!-- Campo programa -->
+                <div class="col-12 sm:col-6">
+                    <div class="p-inputgroup mb-1">
+                        <span class="p-inputgroup-addon"><i class="pi pi-book"></i></span>
+                        <input class="w-12" type="text" pInputText formControlName="programa" placeholder="Programa"
+                            title="Programa" />
+                    </div>
+                </div>
+
+               
+            </div>
+
+            <!-- Botones de acción -->
+            <div class="flex justify-content-center flex-wrap">
+                <button pButton pRipple label="Guardar" icon="pi pi-save" severity="info" class="mr-4"
+                    type="submit"></button>
+                <button pButton pRipple label="Cancelar" icon="pi pi-times-circle" severity="warning" class="mr-4"
+                    type="button" (click)="cancel()"></button>
+            </div>
+        </form>
+    </div>
+
+    <ng-template pTemplate="footer">
+        <!-- Pie de página si es necesario -->
+    </ng-template>
+</p-card>
