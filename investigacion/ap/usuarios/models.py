@@ -13,6 +13,7 @@ class Usuario(models.Model):
     email = models.EmailField(unique=True)
     tipo_usuario = models.CharField(max_length=50, choices=TIPO_USUARIO_CHOICES)
     programa = models.ForeignKey(Programa, on_delete=models.SET_NULL, null=True)  # Relación con Programa
+    estado = models.BooleanField(default=True)  # Campo estado por defecto True
 
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
